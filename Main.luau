@@ -6,6 +6,10 @@
 -- This script works without HTTP requests and it's updated manually by its creator.
 -- "MY MODULE IS THE MODULE THAT CREATES THE HEAVENS!" - @Dogutsune, 2026
 ------------------------------------------------------------------------------ 
+-- Big thanks to:
+-- * @Conikku - The original ConvertFromHumanoidDescription pull request.
+-- * Roblox Staff - Allowing me to put this module back on sale despite everything!
+------------------------------------------------------------------------------ 
 
 -- Sample script! Feel free to make alternative implementations.
 --[[
@@ -37,7 +41,10 @@ end)
 
 ------------------------------------------------------------------------------
 
-local EXCLUDED_ACCESSORIES = {"Eyebrow", "Eyelash"}
+local EXCLUDED_ACCESSORIES = {
+	Enum.AccessoryType.Eyebrow;
+	Enum.AccessoryType.Eyelash;
+}
 
 local Players = game:GetService("Players")
 local ToHatModule : ModuleScript = script:WaitForChild("ToHat")
@@ -59,10 +66,11 @@ DescHolder.ProportionScale = 0
 ------------------------------------------------------------------------------ 
 
 --- Create a retexture from an existing Roblox hat, while preserving it's SpecialMesh or MeshPart properties.
---- @param name string -- The name of the retexture.
+--- It's done by inserting an existing hat and altering its texture.
+--- @param name string -- The name of the retexture we are creating.
 --- @param hatId number -- Roblox Asset ID for the Accessory.
 --- @param texture number -- Roblox Asset ID for the retexture.
---- @return Accoutrement? -- Created hat, if any.
+--- @return Accoutrement? -- Modified hat accessory, nil otherwise.
 local function CreateRetexture(name : string, hatId : number, texture : number) : Accoutrement?
 	local textureID = `rbxassetid://{texture}`
 	DescHolder.HatAccessory = tostring(hatId)
@@ -78,7 +86,6 @@ local function CreateRetexture(name : string, hatId : number, texture : number) 
 			local mesh = handle:FindFirstChildWhichIsA("SpecialMesh")
 			if mesh and mesh:IsA("SpecialMesh") then
 				mesh.TextureId = textureID
-				return hat
 			end
 		end
 	end
@@ -90,55 +97,74 @@ end
 
 local FacialU = {}
 
---- Convert animated faces to classic variants.
---- @param humanoid Humanoid -- The humanoid to modify.
---- @param useDefaultHead boolean -- Use the default Roblox head.
---- @return boolean -- Conversion state
-function FacialU:ConvertAnimatedHead(humanoid : Humanoid, useDefaultHead : boolean?) : boolean
-	if not humanoid then
-		return false
-	end
+--- Convert a HumanoidDescription to use classic faces instead of animated heads.
+--- Modifies the provided HumanoidDescription in-place by replacing dynamic head assets with classic 2D faces.
+--- Removes eyebrows and eyelashes, and converts heads to either classic face decals or retextured hat accessories.
+--- @param humanoidDescription HumanoidDescription -- The HumanoidDescription to modify in-place.
+--- @param useDefaultHead boolean -- Use the default Roblox head (Head = 0) instead of the classic head mesh.
+--- @return boolean -- True if a conversion was performed, false otherwise.
+--- @return Accoutrement? -- Created hat accessory if the head was converted to a hat, nil otherwise.
+function FacialU:ConvertFromHumanoidDescription(humanoidDescription : HumanoidDescription, useDefaultHead : boolean?): (boolean, Accoutrement?)
+	assert(humanoidDescription, "Expected HumanoidDescription but got nil instead, please provide a humanoid description!")
+
 	useDefaultHead = useDefaultHead or false
 
-	local hatToCopy : any = nil
+	local ID = humanoidDescription.Head
+	local removeFaceStuff = false
+	local hatToCopy : Accoutrement?
+
+	if TO_HAT[ID] then
+		hatToCopy = CreateRetexture(TO_HAT[ID].Name, TO_HAT[ID].OriginalHat, TO_HAT[ID].Texture)
+		humanoidDescription.Head = 0
+		removeFaceStuff = true
+	elseif TO_FACE[ID] then
+		humanoidDescription.Face = TO_FACE[ID].Face
+		humanoidDescription.Head = useDefaultHead and 0 or TO_FACE[ID].Head
+		removeFaceStuff = true
+	end
+
+	-- We remove Eyelashes and Eyebrows.
+	if removeFaceStuff then
+		local getAccessories = humanoidDescription:GetAccessories(true)
+		local setAccessories = {}
+		for i, v in pairs(getAccessories) do
+			local accType = v.AccessoryType or Enum.AccessoryType.Unknown
+			local isInTable = table.find(EXCLUDED_ACCESSORIES, accType) ~= nil
+			if not isInTable then
+				table.insert(setAccessories, v)
+			end
+		end
+
+		humanoidDescription:SetAccessories(setAccessories, true)
+
+		if hatToCopy and hatToCopy:IsA("Accoutrement") then
+			local newHat = Instance.new("AccessoryDescription")
+			newHat.AccessoryType = hatToCopy:IsA("Accessory") and hatToCopy.AccessoryType or Enum.AccessoryType.Hat
+			newHat.Instance = hatToCopy
+			newHat.Parent = humanoidDescription
+		end
+	end
+
+	return removeFaceStuff, hatToCopy
+end
+
+--- Convert animated faces to classic variants.
+--- @param humanoid Humanoid -- The humanoid instance to modify.
+--- @param useDefaultHead boolean -- Use the default Roblox head (Head = 0) instead of the classic head mesh.
+--- @return boolean -- True if a conversion was performed, false otherwise.
+function FacialU:ConvertAnimatedHead(humanoid : Humanoid, useDefaultHead : boolean?) : boolean
+	assert(humanoid, "Expected Humanoid but got nil instead!")
+	useDefaultHead = useDefaultHead or false
+
 	humanoid:WaitForChild("HumanoidDescription", 1) -- THIS IS A STUPID HACK, OKAY?
 	local desc = humanoid:GetAppliedDescription() :: HumanoidDescription
 	if desc then
-		local ID = desc.Head
-		local removeFaceStuff = false
-		
-		if TO_HAT[ID] then
-			hatToCopy = CreateRetexture(TO_HAT[ID].Name, TO_HAT[ID].OriginalHat, TO_HAT[ID].Texture)
-			desc.Head = 0
-			removeFaceStuff = true
-		elseif TO_FACE[ID] then
-			desc.Face = TO_FACE[ID].Face
-			desc.Head = useDefaultHead and 0 or TO_FACE[ID].Head
-			removeFaceStuff = true
+		local wasConverted = self:ConvertFromHumanoidDescription(desc, useDefaultHead)
+		if wasConverted then
+			humanoid:ApplyDescriptionAsync(desc)
+			humanoid.ApplyDescriptionFinished:Wait()
+			return true
 		end
-		
-		-- We remove Eyelashes and Eyebrows.
-		if removeFaceStuff then
-			local getAccessories = desc:GetAccessories(true)
-			local setAccessories = {}
-			for i, v in pairs(getAccessories) do
-				local isInTable = table.find(EXCLUDED_ACCESSORIES, v.AccessoryType.Name or "Unknown") ~= nil
-				if not isInTable then
-					table.insert(setAccessories, v)
-				end
-			end
-			desc:SetAccessories(setAccessories, true)
-		end
-		
-		humanoid:ApplyDescriptionAsync(desc)
-		humanoid.ApplyDescriptionFinished:Wait()
-
-		-- Copies the hat.
-		if hatToCopy and hatToCopy:IsA("Accoutrement") then
-			local copy = hatToCopy:Clone()
-			humanoid:AddAccessory(copy)
-		end
-		return true
 	end
 
 	return false
@@ -146,7 +172,7 @@ end
 
 ------------------------------------------------------------------------------ 
 
--- Prints attribution in the console.
+-- Prints attribution and update notifications in the console.
 local Attribution : ModuleScript = script:FindFirstChild("Attribution")
 if Attribution and Attribution:IsA("ModuleScript") then 
 	require(Attribution) 
