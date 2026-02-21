@@ -1,20 +1,20 @@
 --!strict
 
------------------------------------------------------------------------------- 
+------------------------------------------------------------------------------
 -- == Facial Unification ==
 -- Module which replaces all the dynamic heads with their classic 2D counterparts.
 -- This script works without HTTP requests and it's updated manually by its creator.
 -- "MY MODULE IS THE MODULE THAT CREATES THE HEAVENS!" - @Dogutsune, 2026
------------------------------------------------------------------------------- 
+------------------------------------------------------------------------------
 -- Big thanks to:
 -- * @Conikku - The original ConvertFromHumanoidDescription pull request.
 -- * Roblox Staff - Allowing me to put this module back on sale despite everything!
------------------------------------------------------------------------------- 
+------------------------------------------------------------------------------
 
 -- Sample script! Feel free to make alternative implementations.
 --[[
 local DEFAULT_HEAD = false
-local FacialUnification = require(game.ServerStorage.FacialUnification) 
+local FacialUnification = require(game.ServerStorage.FacialUnification)
 
 local Players = game:GetService("Players")
 
@@ -56,18 +56,7 @@ local TO_HAT = require(ToHatModule)
 local ToFaceModule : ModuleScript = script:WaitForChild("ToFace")
 local TO_FACE = require(ToFaceModule)
 
------------------------------------------------------------------------------- 
-
--- This thing will allow us to insert hats as MeshParts when they are enabled.
-local DescHolder = Instance.new("HumanoidDescription")
-DescHolder.HeadScale = 1
-DescHolder.WidthScale = 1
-DescHolder.DepthScale = 1
-DescHolder.HeightScale = 1
-DescHolder.BodyTypeScale = 0
-DescHolder.ProportionScale = 0
-
------------------------------------------------------------------------------- 
+------------------------------------------------------------------------------
 
 --- Create a retexture from an existing Roblox hat, while preserving it's SpecialMesh or MeshPart properties.
 --- It's done by inserting an existing hat and altering its texture.
@@ -77,6 +66,13 @@ DescHolder.ProportionScale = 0
 --- @return Accoutrement? -- Modified hat accessory, nil otherwise.
 local function CreateRetexture(name : string, hatId : number, texture : number) : Accoutrement?
 	local textureID = `rbxassetid://{texture}`
+	local DescHolder = Instance.new("HumanoidDescription")
+	DescHolder.HeadScale = 1
+	DescHolder.WidthScale = 1
+	DescHolder.DepthScale = 1
+	DescHolder.HeightScale = 1
+	DescHolder.BodyTypeScale = 0
+	DescHolder.ProportionScale = 0
 	DescHolder.HatAccessory = tostring(hatId)
 
 	local R15 = Players:CreateHumanoidModelFromDescriptionAsync(DescHolder, Enum.HumanoidRigType.R15)
@@ -97,7 +93,7 @@ local function CreateRetexture(name : string, hatId : number, texture : number) 
 	return hat
 end
 
------------------------------------------------------------------------------- 
+------------------------------------------------------------------------------
 
 local FacialU = {}
 
@@ -174,12 +170,12 @@ function FacialU:ConvertAnimatedHead(humanoid : Humanoid, useDefaultHead : boole
 	return false
 end
 
------------------------------------------------------------------------------- 
+------------------------------------------------------------------------------
 
 -- Prints attribution and update notifications in the console.
 local Attribution : ModuleScript = script:FindFirstChild("Attribution")
-if Attribution and Attribution:IsA("ModuleScript") then 
-	require(Attribution) 
+if Attribution and Attribution:IsA("ModuleScript") then
+	require(Attribution)
 end
 
 return FacialU
