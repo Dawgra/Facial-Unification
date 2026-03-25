@@ -76,32 +76,31 @@
 	[15381595196] = {Face = 23932048; Head = 0}; -- Awkward....;
 
 	-- LIMITED FACES (3/24/2026)
-	[82223146991621] = {} -- Snowflake Eyes
-	[105028880420594] = {} -- Heart Gaze - Zara Larsson
-	[113425055554795] = {} -- Ruby Archfey Visage
-	[97699841126721] = {} -- Emerald Archfey Visage
-	[139535289947103] = {} -- Sapphire Archfey Visage
-	[76555837397746] = {} -- Torque the Blue Orc
-	[136119456527444] = {} -- Torque the Red Orc
-	[92463319737252] = {} -- Torque the Green Orc
-	[131399888304772] = {} -- Crybaby
-	[117696810257410] = {} -- Absolutely Shocked
-	[100855364575418] = {} -- So Super Excited - Purple
-	[105043556367611] = {} -- So Super Excited - Pink
-	[160162750034810] = {} -- So Super Excited - Blue
-	[139285725934591] = {} -- Snow Queen Smile
-	[136298162773288] = {} -- Playful Vampire
+	[82223146991621] = {Face = 0; Head = 0} -- Snowflake Eyes
+	[105028880420594] = {Face = 0; Head = 0} -- Heart Gaze - Zara Larsson
+	[113425055554795] = {Face = 0; Head = 0} -- Ruby Archfey Visage
+	[97699841126721] = {Face = 0; Head = 0} -- Emerald Archfey Visage
+	[139535289947103] = {Face = 0; Head = 0} -- Sapphire Archfey Visage
+	[76555837397746] = {Face = 0; Head = 0} -- Torque the Blue Orc
+	[136119456527444] = {Face = 0; Head = 0} -- Torque the Red Orc
+	[92463319737252] = {Face = 0; Head = 0} -- Torque the Green Orc
+	[131399888304772] = {Face = 0; Head = 0} -- Crybaby
+	[117696810257410] = {Face = 0; Head = 0} -- Absolutely Shocked
+	[100855364575418] = {Face = 0; Head = 0} -- So Super Excited - Purple
+	[105043556367611] = {Face = 0; Head = 0} -- So Super Excited - Pink
+	[160162750034810] = {Face = 0; Head = 0} -- So Super Excited - Blue
+	[139285725934591] = {Face = 0; Head = 0} -- Snow Queen Smile
+	[136298162773288] = {Face = 0; Head = 0} -- Playful Vampire
 	[70816272422225] = {} -- Blue Starry Sight
 	[125398935000311] = {} -- Violet Starry Sight
-	[80295518297031] = {} -- Green Starry Sight
-	[128824320785562] = {} -- Radioactive Beast Mode
-	[121549276492016] = {} -- Green Ultimate Dragon Face
-	[125174710850024] = {} -- Blue Ultimate Dragon Face
-	[80071849693343] = {} -- Red Ultimate Dragon Face
-	[130949348675256] = {} -- Purple Mermaid Princess
-	[118470540237243] = {} -- Pink Mermaid Princess
-	[130587659920837] = {} -- Teal Mermaid Princess
-
+	[80295518297031] = {Face = 0; Head = 0} -- Green Starry Sight
+	[128824320785562] = {Face = 0; Head = 0} -- Radioactive Beast Mode
+	[121549276492016] = {Face = 0; Head = 0} -- Green Ultimate Dragon Face
+	[125174710850024] = {Face = 0; Head = 0} -- Blue Ultimate Dragon Face
+	[80071849693343] = {Face = 0; Head = 0} -- Red Ultimate Dragon Face
+	[130949348675256] = {Face = 0; Head = 0} -- Purple Mermaid Princess
+	[118470540237243] = {Face = 0; Head = 0} -- Pink Mermaid Princess
+	[130587659920837] = {Face = 0; Head = 0} -- Teal Mermaid Princess
 	[86757595823239] = {Face = 0; Head = 0}; -- Blue Rock Star Smile
 	[139251841457633] = {Face = 0; Head = 0}; -- Catching Snowflakes
 	[129714185728418] = {Face = 0; Head = 0}; -- Golden Bling Braces
