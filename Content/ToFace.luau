@@ -1,4 +1,4 @@
-return {
+		return {
 	-- FACES (01/28/2026)
 	[115499438051492] = {Face = 25321961; Head = 115499438051492}; -- Friendly Grin;
 	[15554865353] = {Face = 20722130; Head = 15554865353}; -- Shiny Teeth;
@@ -76,165 +76,166 @@ return {
 	[15381595196] = {Face = 23932048; Head = 0}; -- Awkward....;
 
 	-- LIMITED FACES (3/24/2026)
-	[259144677693420] = {} -- Snowflake Eyes
-	[66093949009701] = {} -- Heart Gaze - Zara Larsson
-	[99329503948189] = {} -- Ruby Archfey Visage
-	[245200235428267] = {} -- Emerald Archfey Visage
-	[100782277801192] = {} -- Sapphire Archfey Visage
-	[246995774989589] = {} -- Torque the Blue Orc
-	[74319168976379] = {} -- Torque the Red Orc
-	[173524334798906] = {} -- Torque the Green Orc
-	[7095994872181] = {} -- Crybaby
-	[180840496952935] = {} -- Absolutely Shocked
-	[18284277335696] = {} -- So Super Excited - Purple
-	[159143520773591] = {} -- So Super Excited - Pink
+	[82223146991621] = {} -- Snowflake Eyes
+	[105028880420594] = {} -- Heart Gaze - Zara Larsson
+	[113425055554795] = {} -- Ruby Archfey Visage
+	[97699841126721] = {} -- Emerald Archfey Visage
+	[139535289947103] = {} -- Sapphire Archfey Visage
+	[76555837397746] = {} -- Torque the Blue Orc
+	[136119456527444] = {} -- Torque the Red Orc
+	[92463319737252] = {} -- Torque the Green Orc
+	[131399888304772] = {} -- Crybaby
+	[117696810257410] = {} -- Absolutely Shocked
+	[100855364575418] = {} -- So Super Excited - Purple
+	[105043556367611] = {} -- So Super Excited - Pink
 	[160162750034810] = {} -- So Super Excited - Blue
-	[161273774968765] = {} -- Snow Queen Smile
-	[105919952545574] = {} -- Playful Vampire
-	[67824030495196] = {} -- Blue Starry Sight
-	[203349976064280] = {} -- Violet Starry Sight
-	[44090604577424] = {} -- Green Starry Sight
-	[207033123750918] = {} -- Radioactive Beast Mode
-	[57693769529735] = {} -- Green Ultimate Dragon Face
-	[136024737007504] = {} -- Blue Ultimate Dragon Face
-	[244872167329033] = {} -- Red Ultimate Dragon Face
-	[190261537103587] = {} -- Purple Mermaid Princess
-	[207362786996620] = {} -- Pink Mermaid Princess
-	[86233108879893] = {} -- Teal Mermaid Princess
-	[37386908552638] = {} -- Blue Rock Star Smile
-	[213249000290945] = {} -- Catching Snowflakes
-	[123673229695616] = {} -- Golden Bling Braces
-	[248386134630261] = {} -- Green Goof
-	[141680612726107] = {} -- Blue Goof
-	[50309297008292] = {} -- Red Goof
-	[205962437217019]  = {} -- Golden Evil Eye
-	[86416810295528] = {} -- Emerald Evil Eye
-	[260003104040405] = {} -- Sapphire Evil Eye
-	[143090179339167] = {} -- Crimson Evil Eye
-	[163046677043335] = {} -- Rose Amazeface
-	[29526768190915] = {} -- Lavender Amazeface
-	[148231230019774] = {} -- Blue Amazeface
-	[237353242205754] = {} -- Green Amazeface
-	[117446023364800] = {} -- Rosey Smile
-	[182287144489277] = {} -- Bacon Face
-	[142855532815206] = {} -- Green Wistful Wink
-	[43169053104201] = {} -- Purple Wistful Wink
-	[76831638855316] = {} -- Blue Wistful Wink 
-	[3404964728936] = {} -- Madbot 10000
-	[277968943057663] = {} -- Cuckookrazybot 10000
-	[159439763893780] = {} -- Manicbot 10000
-	[167622074133769] = {} -- Crazybot 10000
-	[82092837886536] = {} -- Serious Red Eye Scar
-	[158380697314856] = {} -- Super Super Happy Face
-	[7566693845115] = {} -- Red White and Starface
-	[6386515563933] = {} -- Blue Galaxy Gaze
-	[246874410156439] = {} -- Purple Galaxy Gaze
-	[217726554907562] = {} -- Green Galaxy Gaze
-	[151293515880748] = {} -- Pink Galaxy Gaze
-	[211693358929906] = {} -- Yellow Glowing Eyes
-	[133968423526059] = {} -- Green Drool Angry Zombie
-	[61303896649684] = {} -- Red Serious Scar Face
-	[175353425783426] = {} -- Gritty Bombo
-	[273132539401053] = {} -- Friendly Trustinng Smile
-	[225229941504360] = {} -- Green Glowing Eyes
-	[27697993551041] = {} -- Silver Punk Face
-	[124949164676470] = {} -- Monarch Butterfly Smile
-	[123621683179706] = {} -- Green Bubble Trouble
-	[196625578789242] = {} -- Purple Super Happy Joy
-	[206412926711700] = {} -- Really Embarassed
-	[142690107235068] = {} -- Red Rock Star Smile
-	[126001261708663] = {} -- True Love Smile
-	[31281416357406] = {} -- Purple Bubble Trouble
-	[39285032833922] = {} -- Eyes of Everflame
-	[188816309913888] = {} -- Violet Fang
-	[137733902163768] = {} -- Red Glowing Eyes
-	[142815600916961] = {} -- Miss Scarlet
-	[59584787864279] = {} -- Teal Rock Star Smile
-	[151374120070634] = {} -- Sneaky Green-Eyed Snake
-	[168371516984921] = {} -- Blue Bubble Trouble
-	[149363664010741] = {} -- Pink Shades McCool
-	[171572375967582] = {} -- Blue Eyeroll
-	[103196750164703] = {} -- Purple Alien
-	[157682378774406] = {} -- Daring Blond Beard Face
-	[37722358446451] = {} -- Green Watchoo Talkin' Bout
-	[49142176654239] = {} -- Desert Commando
-	[57524613823815] = {} -- Green Super Happy Joy
-	[213959782500994] = {} -- Mildly Irritated Face
-	[239822084490708] = {} -- Purple Trance
-	[227552743137786] = {} -- Blue Trance
-	[200603329999709] = {} -- Green Trance
-	[32470572529889] = {} -- Orange Trance
-	[176059672658048] = {} -- Sad Clown
-	[265331263388097] = {} -- Purple Butterfly Smile
-	[235235605129375] = {} -- Egg Crazed
-	[196108949920441] = {} -- Sapphire Laser Vision
-	[170591579555886] = {} -- Blizzard Beast Mode
-	[72389557944696] = {} -- Eyes of Emeraldwrath
-	[210413213860781] = {} -- Crimson Starface
-	[504989506044] = {} -- Orange Starface
-	[225334475670861] = {} -- Yellow Starface
-	[236385495807573] = {} -- Fawkes Face
-	[187619642691885] = {} -- ROBLOX Madness Face
-	[161442420541976] = {} -- Beast Mode
-	[73311057925154] = {} -- Punk Face
-	[176341714008675] = {} -- Purple Starface
-	[241144177708507] = {} -- Blue Starface
-	[46277925137514] = {} -- Green Starface
-	[8125815716847] = {} -- Egg  on your Face
-	[237277579906692] = {} -- Evil Skeptic
-	[161618639135157] = {} -- Red RAWR
-	[221848328784513] = {} -- Golden Lightning Speaker
-	[262424818371862] = {} -- Green-eyed Awesome Face
-	[231032145992486] = {} -- Emerald Ambassador
-	[142631669390734] = {} -- Not So Friendly Eviscerator
-	[183648550594196] = {Face = 0; Head = 107583431008996}; -- Golden Shiny Teeth
-	[172341811454256] = {} -- Emerald Laser Vision
-	[10871578761844] = {} -- Country Morning
-	[56317575428263] = {} -- Grandma's Lipstick
-	[233554193728826] = {} -- Eyes of Crimsonwrath
-	[149674966579055] = {} -- Crimson Laser Vision
-	[85169621046505] = {} -- Angelic
-	[218617118319820] = {} -- Imagine
-	[160001924154932] = {} -- The Dog Whisperer
-	[170618058474638] = {} -- Mr. Bubbles
-	[149994849385567] = {} -- Facepalm
-	[187642752530058] = {} -- Trance
-	[252312045307473] = {} -- Seeing Stars
-	[247775558574701] = {} -- It's so beautiful!
-	[120902739971435] = {} -- Tattletale
-	[26858190729610] = {} -- Yum!
-	[73640369907322] = {} -- Bling
-	[21742152397504] = {} -- Sophisticated Spectacles
-	[220132395519215] = {} -- Freckled Cheeks
-	[48026449559322] = {} -- Emperor
-	[219471697535958] = {} -- Where are the eggs?
-	[175104452081044] = {} -- Butterfly
-	[269930814512025] = {} -- Camoface
-	[265775141751850] = {} -- Zip It!
-	[521892262170] = {} -- Mick McCann
-	[164640067601390] = {} -- Clown Face
-	[57371610389576] = {} -- Paintball Enthusiast
-	[213281809960366] = {} -- Surprise!
-	[240333974842718] = {} -- Eyes of Everfrost
-	[232651140533287] = {} -- Troublemaker
-	[42106140877509] = {} -- Winter
-	[273052457652316] = {} -- The First Time I Ever Played ROBLOX...
-	[52371470726081] = {} -- Clown School Dropout
-	[19197126863437] = {} -- Embarrassed
-	[185544715561823] = {} -- Optimist
-	[208228537986130] = {} -- Bandage
-	[216046683490600] = {} -- Prankster
-	[275136962053799] = {} -- Rudolph
-	[74870047635131] = {} -- Snowman Face
-	[53224881762118] = {} -- Pieface Jellyfreckles
-	[33018729707266] = {} -- Bubble Trouble
-	[28384435221791] = {} -- Eyes of Azurewrath
-	[272960980182996] = {} -- Sapphire Drool
-	[266432584931765] = {} -- Ochre Ogre
-	[99193092665680] = {} -- Red Fang
-	[96596866597045] = {} -- Jungle Commando
-	[146513564678819] = {} -- Red Tango
-	[226843609127037] = {} -- zOMG Hat Selling!
+	[139285725934591] = {} -- Snow Queen Smile
+	[136298162773288] = {} -- Playful Vampire
+	[70816272422225] = {} -- Blue Starry Sight
+	[125398935000311] = {} -- Violet Starry Sight
+	[80295518297031] = {} -- Green Starry Sight
+	[128824320785562] = {} -- Radioactive Beast Mode
+	[121549276492016] = {} -- Green Ultimate Dragon Face
+	[125174710850024] = {} -- Blue Ultimate Dragon Face
+	[80071849693343] = {} -- Red Ultimate Dragon Face
+	[130949348675256] = {} -- Purple Mermaid Princess
+	[118470540237243] = {} -- Pink Mermaid Princess
+	[130587659920837] = {} -- Teal Mermaid Princess
+
+	[86757595823239] = {Face = 0; Head = 0}; -- Blue Rock Star Smile
+	[139251841457633] = {Face = 0; Head = 0}; -- Catching Snowflakes
+	[129714185728418] = {Face = 0; Head = 0}; -- Golden Bling Braces
+	[74755350764511] = {Face = 0; Head = 0}; -- Green Goof
+	[114624520946660] = {Face = 0; Head = 0}; -- Blue Goof
+	[81782708135833] = {Face = 0; Head = 0}; -- Red Goof
+	[119177593930347] = {Face = 0; Head = 0}; -- Golden Evil Eye
+	[75928060346586] = {Face = 0; Head = 0}; -- Emerald Evil Eye
+	[110586656750267] = {Face = 0; Head = 0}; -- Sapphire Evil Eye
+	[129656196322956] = {Face = 0; Head = 0}; -- Crimson Evil Eye
+	[82353565383252] = {Face = 0; Head = 0}; -- Rose Amazeface
+	[114002243812238] = {Face = 0; Head = 0}; -- Lavender Amazeface
+	[135442682003593] = {Face = 0; Head = 0}; -- Blue Amazeface
+	[108922072075304] = {Face = 0; Head = 0}; -- Green Amazeface
+	[118329081640597] = {Face = 0; Head = 0}; -- Rosey Smile
+	[108845975324525] = {Face = 0; Head = 0}; -- Bacon Face
+	[73941496344773] = {Face = 0; Head = 0}; -- Green Wistful Wink
+	[121015622358176] = {Face = 0; Head = 0}; -- Purple Wistful Wink
+	[128394984451898] = {Face = 0; Head = 0}; -- Blue Wistful Wink
+	[135998911746266] = {Face = 0; Head = 0}; --- Madbot 10000
+	[102042786518422] = {Face = 0; Head = 0}; -- Cuckookrazybot 10000
+	[70423691706180] = {Face = 0; Head = 0}; -- Manicbot 10000
+	[128745243924127] = {Face = 0; Head = 0}; -- Crazybot 10000
+	[139384042440431] = {Face = 0; Head = 0}; -- Serious Red Eye Scar
+	[130433936882245] = {Face = 0; Head = 0}; -- Super Super Happy Face
+	[105198379641417] = {Face = 0; Head = 0}; -- Red White and Starface
+	[88834524055841] = {Face = 0; Head = 0}; -- Blue Galaxy Gaze
+	[79942600188080] = {Face = 0; Head = 0}; -- Purple Galaxy Gaze
+	[87373673637036] = {Face = 0; Head = 0}; -- Green Galaxy Gaze
+	[76528359620057] = {Face = 0; Head = 0}; -- Pink Galaxy Gaze
+	[140095450346434] = {Face = 0; Head = 0}; -- Yellow Glowing Eyes
+	[125370042563619] = {Face = 0; Head = 0}; -- Green Drool Angry Zombie
+	[74785198633210] = {Face = 0; Head = 0}; -- Red Serious Scar Face
+	[136157998320514] = {Face = 0; Head = 0}; -- Gritty Bombo
+	[128202565043011] = {Face = 0; Head = 0}; -- Friendly Trusting Smile
+	[113533546773742] = {Face = 0; Head = 0}; -- Green Glowing Eyes
+	[83506696853331] = {Face = 0; Head = 0}; -- Silver Punk Face
+	[101779789483910] = {Face = 0; Head = 0}; -- Monach Butterfly Smile
+	[126170423238549] = {Face = 0; Head = 0}; -- Green Bubble Trouble
+	[127225876992346] = {Face = 0; Head = 0}; -- Purple Super Happy Joy
+	[81366194305125] = {Face = 0; Head = 0}; -- Really Embarassed
+	[91821455094281] = {Face = 0; Head = 0}; -- Red Rock Star Smile
+	[96894500746180] = {Face = 0; Head = 0}; -- True Love Smile
+	[95878878196269] = {Face = 0; Head = 0}; -- Purple Bubble Trouble
+	[128697568798799] = {Face = 0; Head = 0}; -- Eyes of Everflame
+	[139524925599214] = {Face = 0; Head = 0}; --  Violet Fang
+	[93612956752407] = {Face = 0; Head = 0}; -- Red Glowing Eyes
+	[114031313320461] = {Face = 0; Head = 0}; -- Miss Scarlet
+	[122404965266342] = {Face = 0; Head = 0}; -- Teal Rock Star Smile
+	[94262968291014] = {Face = 0; Head = 0}; -- Sneaky Green-Eyed Snake
+	[86211743477998] = {Face = 0; Head = 0}; -- Blue Bubble Trouble
+	[110952399150955] = {Face = 0; Head = 0}; -- Pink Shades McCool
+	[91121970849651] = {Face = 0; Head = 0}; -- Blue Eyeroll
+	[81709127412958] = {Face = 0; Head = 0}; -- Purple Alien
+	[87840847758855] = {Face = 0; Head = 0}; -- Daring Blond Beard Face 
+	[72106136406041] = {Face = 0; Head = 0}; -- Green Watchoo Talkin' Bout
+	[110772828508993] = {Face = 0; Head = 0}; -- Desert Commando
+	[77572020448942] = {Face = 0; Head = 0}; -- Green Super Happy Joy
+	[120972839388604] = {Face = 0; Head = 0}; -- Mildly Irritated Face
+	[127011072756234] = {Face = 0; Head = 0}; -- Purple Trance
+	[82457152188114] = {Face = 0; Head = 0}; -- Blue Trance
+	[109905099175232] = {Face = 0; Head = 0}; -- Green Trance
+	[82464300219744] = {Face = 0; Head = 0}; -- Orange Trance
+	[80776110486364] = {Face = 0; Head = 0}; -- Sad Clown
+	[138245728055090] = {Face = 0; Head = 0}; -- Purple Butterfly Smile
+	[119088485529911] = {Face = 0; Head = 0}; -- Egg Crazed
+	[134951159309466] = {Face = 0; Head = 0}; -- Sapphire Laser Vision
+	[108864005873622] = {Face = 0; Head = 0}; -- Blizzard Beast Mode
+	[79464159928696] = {Face = 0; Head = 0}; -- Eyes of Emeraldwrath
+	[123840740066914] = {Face = 0; Head = 0}; -- Crimson Starface
+	[128156361613644] = {Face = 0; Head = 0}; -- Orange Starface
+	[91208636020591] = {Face = 0; Head = 0}; -- Yellow Starface
+	[127131051897190] = {Face = 0; Head = 0}; -- Fawkes Face
+	[104065003453878] = {Face = 0; Head = 0}; -- ROBLOX Madness Face
+	[127688119049205] = {Face = 0; Head = 0}; -- Beast Mode
+	[113079082964778] = {Face = 0; Head = 0}; -- Punk Face
+	[85197114341160] = {Face = 0; Head = 0}; -- Purple Starface
+	[115834462252208] = {Face = 0; Head = 0}; -- Blue Starface
+	[83599404800837] = {Face = 0; Head = 0}; -- Green Starface
+	[89246662937540] = {Face = 0; Head = 0}; -- Egg on your Face
+	[88871634439416] = {Face = 0; Head = 0}; -- Evil Skeptic
+	[81805929960774] = {Face = 0; Head = 0}; -- Red RAWR
+	[123590908487930] = {Face = 0; Head = 0}; -- Golden Lightning Speaker
+	[126119529218185] = {Face = 0; Head = 0}; -- Green-eyed Awesome Face
+	[98911240700737] = {Face = 0; Head = 0};  -- Emerald Ambassador
+	[80693123152809] = {Face = 0; Head = 0}; -- Not So Friendly Eviscerator
+	[107583431008996] = {Face = 0; Head = 0}; -- Golden Shiny Teeth
+	[129623286431489] = {Face = 0; Head = 0}; -- Emerald Laser Vision
+	[128582240186729] = {Face = 0; Head = 0}; -- Country Morning
+	[110555154231205] = {Face = 0; Head = 0}; -- Grandma's Lipstick
+	[98152940439813] = {Face = 0; Head = 0}; -- Eyes of Crimsonwrath
+	[127584264907068] = {Face = 0; Head = 0}; -- Crimson Laser Vision
+	[124694574238407] = {Face = 0; Head = 0}; -- Angelic
+	[88006692500183] = {Face = 0; Head = 0}; -- Imagine
+	[97795503835788] = {Face = 0; Head = 0}; -- The Dog Whisperer
+	[88319671293099] = {Face = 0; Head = 0}; -- Mr. Bubbles
+	[104654517957580] = {Face = 0; Head = 0}; -- Facepalm
+	[122414949110123] = {Face = 0; Head = 0}; -- Trance
+	[130730425836867] = {Face = 0; Head = 0}; -- Seeing Stars
+	[77122687009667] = {Face = 0; Head = 0}; -- It's so beautiful!
+	[117567121137597] = {Face = 0; Head = 0}; -- Tattletale
+	[90223980922049] = {Face = 0; Head = 0}; -- Yum!
+	[107904877242588] = {Face = 0; Head = 0}; -- Bling
+	[92117550259162] = {Face = 0; Head = 0}; -- Sophisticated Spectacles
+	[125847656534235] = {Face = 0; Head = 0}; -- Freckled Cheeks
+	[86026339949343] = {Face = 0; Head = 0}; -- Emperor
+	[110010848568654] = {Face = 0; Head = 0}; -- Where are the eggs?
+	[114390215091769] = {Face = 0; Head = 0}; -- Butterfly
+	[90636306668471] = {Face = 0; Head = 0}; -- Camoface
+	[134946036166323] = {Face = 0; Head = 0}; -- Zip It!
+	[108624000911202] = {Face = 0; Head = 0}; -- Mick McCann
+	[115071992858237] = {Face = 0; Head = 0}; -- Clown Face
+	[132405327771462] = {Face = 0; Head = 0}; -- Paintball Enthusiast
+	[92706336373080] = {Face = 0; Head = 0}; -- Surprise!
+	[91125792495525] = {Face = 0; Head = 0}; -- Eyes of Everfrost
+	[76400441982455] = {Face = 0; Head = 0}; -- Troublemaker
+	[122184140520797] = {Face = 0; Head = 0}; -- Winter
+	[91329758638254] = {Face = 0; Head = 0}; -- The First Time I Ever Played ROBLOX...
+	[118158216654463] = {Face = 0; Head = 0}; -- Clown School Dropout
+	[76072415400788] = {Face = 0; Head = 0}; -- Embarrassed
+	[125494923219947] = {Face = 0; Head = 0}; -- Optimist
+	[135342343158385] = {Face = 0; Head = 0}; -- Bandage
+	[99892364304434] = {Face = 0; Head = 0}; -- Prankster
+	[87185302543027] = {Face = 0; Head = 0}; -- Rudolph
+	[131149821595675] = {Face = 0; Head = 0}; -- Snowman Face
+	[134179520835910] = {Face = 0; Head = 0}; -- Pieface Jellyfreckles
+	[93993347699240] = {Face = 0; Head = 0}; -- Bubble Trouble
+	[117806770548096] = {Face = 0; Head = 0}; -- Eyes of Azurewrath
+	[122135645989195] = {Face = 0; Head = 0}; -- Sapphire Drool
+	[126180654578408] = {Face = 0; Head = 0}; -- Ochre Ogre
+	[84053249814299] = {Face = 0; Head = 0}; -- Red Fang
+	[102961194186379] = {Face = 0; Head = 0}; -- Jungle Commando
+	[81345866267964] = {Face = 0; Head = 0}; -- Red Tango
+	[117077018404466] = {Face = 0; Head = 0}; -- zOMG Hat Selling!
 
 	-- BUNDLE FACES (01/28/2026)
 	[12930215322] = {Face = 301826803; Head = 0}; -- Lin's Face; // Why is it the only Xbox face to get it tho?
@@ -248,4 +249,8 @@ return {
 	[10638267973] = {Face = 0; Head = 0}; -- Stevie Standard;
 	[10687288296] = {Face = 0; Head = 86498048}; -- Dylan Default;
 	[10723855306] = {Face = 0; Head = 86498113}; -- Devon Default;
+	[123297947692270] = {Face = 0; Head = } -- Diamond
+	[77954380016578] = {} -- Hex
+	[124045894066016] = {} -- Octoblox
+	[83797968787123] = {} -- Cylinder Madnes
 }
