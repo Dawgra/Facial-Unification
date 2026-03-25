@@ -1,4 +1,4 @@
--- !strict
+--!strict
 
 local data : {[string] : number} = {
 	-- SHAPES (03/25/2026), thanks @Xekran_n!
