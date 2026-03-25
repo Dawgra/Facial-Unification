@@ -91,8 +91,8 @@
 	[160162750034810] = {Face = 0; Head = 0} -- So Super Excited - Blue
 	[139285725934591] = {Face = 0; Head = 0} -- Snow Queen Smile
 	[136298162773288] = {Face = 0; Head = 0} -- Playful Vampire
-	[70816272422225] = {} -- Blue Starry Sight
-	[125398935000311] = {} -- Violet Starry Sight
+	[70816272422225] = {Face = 0; Head = 0} -- Blue Starry Sight
+	[125398935000311] = {Face = 0; Head = 0} -- Violet Starry Sight
 	[80295518297031] = {Face = 0; Head = 0} -- Green Starry Sight
 	[128824320785562] = {Face = 0; Head = 0} -- Radioactive Beast Mode
 	[121549276492016] = {Face = 0; Head = 0} -- Green Ultimate Dragon Face
