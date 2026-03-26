@@ -8,17 +8,16 @@
 ------------------------------------------------------------------------------ 
 -- Big thanks to:
 -- * @Conikku - The original ConvertFromHumanoidDescription pull request.
+-- * @Xekran_n - HeadShapes assist.
 -- * Roblox Staff - Allowing me to put this module back on sale despite everything!
 ------------------------------------------------------------------------------ 
 
 -- Sample script! Feel free to make alternative implementations.
 --[[
-local DEFAULT_HEAD = false
-local FacialUnification = require(game.ServerStorage.FacialUnification) 
+local DEFAULT_HEAD = true
+local FacialUnification = require(script:WaitForChild("FacialUnification")) 
 
-local Players = game:GetService("Players")
-
-local function PlayerAdded(player)
+game:GetService("Players").PlayerAdded:Connect(function(player)
 	-- Reload Appearance!
 	local function AppearanceLoad(character)
 		if not character then
@@ -27,6 +26,9 @@ local function PlayerAdded(player)
 		local humanoid = character:WaitForChild("Humanoid", 1)
 		if humanoid then
 			FacialUnification:ConvertAnimatedHead(humanoid, DEFAULT_HEAD)
+			humanoid.ApplyDescriptionFinished:Once(function()
+				FacialUnification:ConvertAnimatedHead(humanoid, DEFAULT_HEAD)
+			end)
 		end
 	end
 
@@ -35,12 +37,7 @@ local function PlayerAdded(player)
 	if player.Character then
 		AppearanceLoad(player.Character)
 	end
-end
-
-Players.PlayerAdded:Connect(PlayerAdded)
-for i, player in pairs(Players:GetPlayers()) do
-	PlayerAdded(player)
-end
+end)
 ]]
 
 ------------------------------------------------------------------------------
@@ -51,21 +48,25 @@ local EXCLUDED_ACCESSORIES = {
 }
 
 local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
 local ToHatModule : ModuleScript = script:WaitForChild("ToHat")
 local TO_HAT = require(ToHatModule)
 local ToFaceModule : ModuleScript = script:WaitForChild("ToFace")
 local TO_FACE = require(ToFaceModule)
+local HeadShapesModule : ModuleScript = script:WaitForChild("HeadShapes")
+local HEAD_SHAPES = require(HeadShapesModule) :: {[string]: number}
 
 ------------------------------------------------------------------------------ 
 
 -- This thing will allow us to insert hats as MeshParts when they are enabled.
-local DescHolder = Instance.new("HumanoidDescription")
-DescHolder.HeadScale = 1
-DescHolder.WidthScale = 1
-DescHolder.DepthScale = 1
-DescHolder.HeightScale = 1
-DescHolder.BodyTypeScale = 0
-DescHolder.ProportionScale = 0
+local Desc : HumanoidDescription = Instance.new("HumanoidDescription")
+Desc.HeadScale = 1
+Desc.WidthScale = 1
+Desc.DepthScale = 1
+Desc.HeightScale = 1
+Desc.BodyTypeScale = 0
+Desc.ProportionScale = 0
 
 ------------------------------------------------------------------------------ 
 
@@ -77,6 +78,8 @@ DescHolder.ProportionScale = 0
 --- @return Accoutrement? -- Modified hat accessory, nil otherwise.
 local function CreateRetexture(name : string, hatId : number, texture : number) : Accoutrement?
 	local textureID = `rbxassetid://{texture}`
+	
+	local DescHolder = Desc:Clone()
 	DescHolder.HatAccessory = tostring(hatId)
 
 	local R15 = Players:CreateHumanoidModelFromDescriptionAsync(DescHolder, Enum.HumanoidRigType.R15)
@@ -97,9 +100,35 @@ local function CreateRetexture(name : string, hatId : number, texture : number) 
 	return hat
 end
 
+--- Retrieves a head for the corresponding head shape.
+--- @param headShape string -- The head shape name.
+--- @return number -- Head ID.
+local function ReturnHeadFromShape(headShape: string): number
+	assert(headShape, "Expected HeadShape string but got nil instead!")
+	local id = HEAD_SHAPES[headShape]
+	return id or 0
+end
+
 ------------------------------------------------------------------------------ 
 
 local FacialU = {}
+
+-- Gets the head shape's internal name
+--- @param humanoidDescription HumanoidDescription -- The HumanoidDescription used.
+--- @return string -- Head shape name.
+function FacialU:GetHeadShape(humanoidDescription : HumanoidDescription) : string
+	assert(humanoidDescription, "Expected HumanoidDescription but got nil instead, please provide a humanoid description!")
+	local shape = ""
+	
+	for _, bodyPart in pairs(humanoidDescription:GetChildren()) do
+		if bodyPart and bodyPart:IsA("BodyPartDescription") and bodyPart.HeadShape ~= "" then
+			shape = bodyPart.HeadShape
+			break
+		end
+	end
+	
+	return shape
+end
 
 --- Convert a HumanoidDescription to use classic faces instead of animated heads.
 --- Modifies the provided HumanoidDescription in-place by replacing dynamic head assets with classic 2D faces.
@@ -123,8 +152,14 @@ function FacialU:ConvertFromHumanoidDescription(humanoidDescription : HumanoidDe
 		removeFaceStuff = true
 	elseif TO_FACE[ID] then
 		humanoidDescription.Face = TO_FACE[ID].Face
-		humanoidDescription.Head = useDefaultHead and 0 or TO_FACE[ID].Head
 		removeFaceStuff = true
+		
+		if useDefaultHead then
+			humanoidDescription.Head = 0
+		else
+			local name = self:GetHeadShape(humanoidDescription)
+			humanoidDescription.Head = (name and name ~= "") and ReturnHeadFromShape(name) or TO_FACE[ID].Head or 0
+		end
 	end
 
 	-- We remove Eyelashes and Eyebrows.
@@ -161,12 +196,13 @@ function FacialU:ConvertAnimatedHead(humanoid : Humanoid, useDefaultHead : boole
 	useDefaultHead = useDefaultHead or false
 
 	humanoid:WaitForChild("HumanoidDescription", 1) -- THIS IS A STUPID HACK, OKAY?
+
 	local desc = humanoid:GetAppliedDescription() :: HumanoidDescription
 	if desc then
 		local wasConverted = self:ConvertFromHumanoidDescription(desc, useDefaultHead)
 		if wasConverted then
-			humanoid:ApplyDescriptionAsync(desc)
-			humanoid.ApplyDescriptionFinished:Wait()
+			humanoid:ApplyDescriptionResetAsync(desc)
+			-- TODO: Fix the updating.
 			return true
 		end
 	end
