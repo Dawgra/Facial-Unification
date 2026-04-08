@@ -152,8 +152,21 @@ function FacialU:ConvertFromHumanoidDescription(humanoidDescription : HumanoidDe
 		removeFaceStuff = true
 	elseif TO_FACE[ID] then
 		humanoidDescription.Face = TO_FACE[ID].Face
+
+		-- For the specific case of the character not having a loaded appearance (LoadCharacterAppearance = false),
+		-- therefore no HumanoidDescription. maybe a bit hacky lol
+		if ID == 0 then 
+			local Medium_stone_grey = Color3.new(0.639216, 0.635294, 0.647059)
+			humanoidDescription.HeadColor = Medium_stone_grey
+			humanoidDescription.TorsoColor = Medium_stone_grey
+			humanoidDescription.LeftArmColor = Medium_stone_grey
+			humanoidDescription.LeftLegColor = Medium_stone_grey
+			humanoidDescription.RightArmColor = Medium_stone_grey
+			humanoidDescription.RightLegColor = Medium_stone_grey
+		end
+
 		removeFaceStuff = true
-		
+
 		if useDefaultHead then
 			humanoidDescription.Head = 0
 		else
