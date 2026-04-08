@@ -528,6 +528,7 @@ return {
 	--[70555769783156] = {Face = 0; Head = 0}; -- #ERROR!
 	
 	-- DEFAULT FACES, ID = 0
+	[0] = {Face = 0; Head = 0}; -- No character appearence;
 	[10638267973] = {Face = 0; Head = 0}; -- Stevie Standard;
 	[73039923126980] = {Face = 0; Head = 0}; -- Stevie Standard Dynamic Head;
 	[10687288296] = {Face = 0; Head = 86498048}; -- Dylan Default;
