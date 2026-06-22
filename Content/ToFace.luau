@@ -502,7 +502,7 @@ return {
 	[84930555025211] = {Face = 9250643; Head = 0}; -- Meanie - Head
 	[84245194729335] = {Face = 10860397; Head = 0}; -- Silence - Head
 	[77960831532326] = {Face = 8560975; Head = 0}; -- Anguished - Head
-	[98870246389760] = {Face = 406000958; Head = 0}; -- ¬_¬ - Head
+	[98870246389760] = {Face = 13038375; Head = 0}; -- ¬_¬ 1.0 - Head
 	[97094889503964] = {Face = 15471035; Head = 0}; -- :/ - Head
 	[106621308776559] = {Face = 9250660; Head = 0}; -- Concerned - Head
 	[130062632799455] = {Face = 1384270693; Head = 0}; -- Tohru: The Phantom Claw's Face - Head
