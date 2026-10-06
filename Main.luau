@@ -33,7 +33,7 @@ game:GetService("Players").PlayerAdded:Connect(function(player)
 	end
 
 	-- Character gets added? Good.
-	player.CharacterAdded:Connect(AppearanceLoad)
+player.CharacterAppearanceLoaded:Connect(AppearanceLoad) -- used to be player.CharacterAppearanceLoaded:Connect(AppearanceLoad), if this doesnt work for you revert it back to this
 	if player.Character then
 		AppearanceLoad(player.Character)
 	end
@@ -46,6 +46,12 @@ local EXCLUDED_ACCESSORIES = {
 	Enum.AccessoryType.Eyebrow;
 	Enum.AccessoryType.Eyelash;
 }
+
+-- Roblox's update on Classic Dynamic heads (October 2026) turned `Head = 0` into the default *animated* head
+-- (FaceControls, no "face" decal), and classic Face decals are ignored on it.
+-- RobloxClassic is a real classic head mesh and still accepts Face decals, so we use it wherever
+-- we used to rely on Head = 0.
+local CLASSIC_DEFAULT_HEAD = 2432102561
 
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -106,7 +112,7 @@ end
 local function ReturnHeadFromShape(headShape: string): number
 	assert(headShape, "Expected HeadShape string but got nil instead!")
 	local id = HEAD_SHAPES[headShape]
-	return id or 0
+	return id or CLASSIC_DEFAULT_HEAD
 end
 
 ------------------------------------------------------------------------------ 
@@ -148,17 +154,19 @@ function FacialU:ConvertFromHumanoidDescription(humanoidDescription : HumanoidDe
 
 	if TO_HAT[ID] then
 		hatToCopy = CreateRetexture(TO_HAT[ID].Name, TO_HAT[ID].OriginalHat, TO_HAT[ID].Texture)
-		humanoidDescription.Head = 0
+		humanoidDescription.Head = CLASSIC_DEFAULT_HEAD
 		removeFaceStuff = true
 	elseif TO_FACE[ID] then
 		humanoidDescription.Face = TO_FACE[ID].Face
 		removeFaceStuff = true
 		
 		if useDefaultHead then
-			humanoidDescription.Head = 0
+			humanoidDescription.Head = CLASSIC_DEFAULT_HEAD
 		else
 			local name = self:GetHeadShape(humanoidDescription)
-			humanoidDescription.Head = (name and name ~= "") and ReturnHeadFromShape(name) or TO_FACE[ID].Head or 0
+			local headId = (name and name ~= "") and ReturnHeadFromShape(name) or TO_FACE[ID].Head
+			-- A table value of 0 means "default head", which is no longer a classic head.
+			humanoidDescription.Head = (headId and headId ~= 0) and headId or CLASSIC_DEFAULT_HEAD
 		end
 	end
 
